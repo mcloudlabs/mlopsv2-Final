@@ -48,6 +48,14 @@ stages:
                   --location $(location) \
                   --parameters location=$(location) prefix=$(namespace) postfix=$(postfix) env=$(environment)
 
+  - stage: Debug
+    displayName: Debug Source Branch Name
+    jobs:
+      - job: DebugBranchName
+        steps:
+          - script: echo "SourceBranchName: ${{ variables['Build.SourceBranchName'] }}"
+
+
   - stage: CheckOutBicepAndDeploy
     displayName: Deploy AML Workspace
     jobs:
