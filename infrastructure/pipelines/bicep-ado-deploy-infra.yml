@@ -4,10 +4,10 @@
 name: bicep-ado-deploy-infra
 
 variables:
-  - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+  - ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
       # 'main' branch: PRD environment
       - template: ../../config-infra-prod.yml
-  - ${{ if ne(variables['Build.SourceBranchName'], 'main') }}:
+  - ${{ if ne(variables['Build.SourceBranchName'], 'master') }}:
       # 'develop' or feature branches: DEV environment
       - template: ../../config-infra-dev.yml
 
